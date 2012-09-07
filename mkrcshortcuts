@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# Copyright 2011, Nico R. Wohlgemuth <nico@lifeisabug.com>
+
+# Accessing FreeBSDs RC-Scripts (from user installed software) the openSUSE way
+
+for i in /usr/local/etc/rc.d/*
+do
+	ln -shf $i /root/bin/rc$(basename $i)
+done
