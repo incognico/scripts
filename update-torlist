@@ -1,0 +1,29 @@
+#!/bin/sh
+# Copyright 2012, Nico R. Wohlgemuth <nico@lifeisabug.com>
+
+WGET=/usr/local/bin/wget
+LIST=/etc/pf-blacklist_tor
+TEMPLIST=/tmp/torlist
+
+$WGET https://www.dan.me.uk/torlist/ -O $TEMPLIST > /dev/null 2>&1
+
+if [ ! -s $TEMPLIST ]; then
+   echo "error: list is empty or was not downloaded"
+   exit 1
+fi
+
+head -n3 $TEMPLIST
+tail -n3 $TEMPLIST
+
+echo -ne "\ndoes this look okay? [y/n]: "
+read yesno
+
+if [ $yesno != "y" ]; then
+   echo "error: aborted"
+   rm $TEMPLIST
+   exit 2
+else
+   mv /tmp/torlist /etc/pf-blacklist_tor
+   echo "pf:"
+   /sbin/pfctl -t blacklist_tor -T replace -f /etc/pf-blacklist_tor
+fi
