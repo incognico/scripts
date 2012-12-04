@@ -15,7 +15,7 @@ fi
 head -n3 $TEMPLIST
 tail -n3 $TEMPLIST
 
-echo -ne "\ndoes this look okay? [y/n]: "
+echo -e "\ndoes this look okay? [y/n]: "
 read yesno
 
 if [ $yesno != "y" ]; then
