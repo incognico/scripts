@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 MAILLOG=/var/log/mail.log
 PFOFFSETFILE=/tmp/zabbix-postfix-offset.dat
