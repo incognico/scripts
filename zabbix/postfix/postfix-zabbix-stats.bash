@@ -38,3 +38,5 @@ else
       printvalues "$i"
    done
 fi
+
+rm "${TEMPFILE}"
