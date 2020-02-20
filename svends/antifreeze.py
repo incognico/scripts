@@ -8,7 +8,7 @@ port = 27015
 
 check_delay_seconds = 10
 unresponsive_max_seconds = 60 * 5
-unresponsive_command = 'kill $(pidof svends_i686) ; kill -9 $(pidof svends_i686) > 2&1'
+unresponsive_command = 'kill $(pidof svends_i686) ; kill -9 $(pidof svends_i686)'
 
 # SETTINGS END
 
