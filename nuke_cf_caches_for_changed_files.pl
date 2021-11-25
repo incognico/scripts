@@ -24,7 +24,7 @@ my $cf_api_key = '';
 my $cf_api_zone = '';
 
 my $oldpairs = LoadFile($store);
-my ($newpairs, @to_nuke, @urls);
+my ($newpairs, @to_nuke);
 
 find(\&wanted, @watch_dirs);
 
